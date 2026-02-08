@@ -1,0 +1,5 @@
+# Disable SC2154 (variable appears to be unused) for environment variables
+shellcheck disable=SC2154
+
+# Disable SC2086 (double quote to prevent globbing and word splitting)
+shellcheck disable=SC2086

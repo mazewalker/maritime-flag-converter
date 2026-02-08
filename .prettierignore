@@ -1,0 +1,15 @@
+# pre-commit
+node_modules/
+__pycache__/
+*.pyc
+
+# Editor directories and files
+.idea
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

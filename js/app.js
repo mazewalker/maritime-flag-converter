@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const flagDisplay = document.getElementById('flagDisplay');
     const flagCanvas = document.getElementById('flagCanvas');
     const flagStyleRadios = document.getElementsByName('flagStyle');
-    
+
     // Maritime code names for each character
     const codeNames = {
         'A': 'Alpha', 'B': 'Bravo', 'C': 'Charlie', 'D': 'Delta', 'E': 'Echo',
@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const width = parseInt(widthInput.value);
         const format = formatInput.value;
         const flagStyle = getSelectedFlagStyle();
-        
+
         // Determine the base path for flags based on style
-        const basePath = flagStyle === 'bordered' 
-            ? 'assets/flags/bordered/' 
+        const basePath = flagStyle === 'bordered'
+            ? 'assets/flags/bordered/'
             : 'assets/flags/borderless/';
 
         // Convert text to flag paths
@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.width = width;
         canvas.height = flagHeight;
         canvas.style.display = 'block';
-        
+
         // Clear previous display
         flagDisplay.innerHTML = '';
-        
+
         // Create preview
         const promises = flagPaths.map((flagPath, index) => {
             return new Promise((resolve) => {
@@ -98,27 +98,27 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 imageData = canvas.toDataURL(`image/${format}`);
             }
-            
+
             downloadLink.href = imageData;
             downloadLink.download = `maritime_flags.${format}`;
             downloadLink.style.display = 'block';
             downloadLink.textContent = `Download ${format.toUpperCase()} Image`;
-            
+
             // Create and display the code names
             const codeNameDisplay = document.createElement('div');
             codeNameDisplay.id = 'codeNameDisplay';
             codeNameDisplay.classList.add('code-names');
-            
+
             // Generate code name text
             const codeNameText = validChars.map(char => codeNames[char] || char).join(' ');
             codeNameDisplay.textContent = codeNameText;
-            
+
             // Remove any existing code name display
             const existingCodeNameDisplay = document.getElementById('codeNameDisplay');
             if (existingCodeNameDisplay) {
                 existingCodeNameDisplay.remove();
             }
-            
+
             // Add the new code name display after the download link
             downloadLink.insertAdjacentElement('afterend', codeNameDisplay);
         });

@@ -1,0 +1,21 @@
+{
+  "name": "maritime-flag-converter",
+  "version": "1.0.0",
+  "description": "A web application that converts English text into international maritime signal flags",
+  "main": "js/app.js",
+  "scripts": {
+    "lint": "eslint js/",
+    "format": "prettier --write \"**/*.{js,css,html,json,yaml,yml}\""
+  },
+  "keywords": [
+    "maritime",
+    "flags",
+    "converter"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.0"
+  }
+}
