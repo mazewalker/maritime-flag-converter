@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  maritime-flag-converter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: maritime-flag-converter
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
